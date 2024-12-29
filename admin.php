@@ -27,9 +27,19 @@ if (!isset($_SESSION['username'])) {
     crossorigin="anonymous"
     />
     <style> 
-        #content {
-            min-height: 460px;
-        } 
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            margin-bottom: 100px; /* Margin bottom by footer height */
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px; /* Set the fixed height of the footer here */ 
+        }
     </style>
 </head>
 <body>
@@ -71,7 +81,8 @@ if (!isset($_SESSION['username'])) {
     <!-- nav end -->
     <!-- content begin -->
     <section id="content" class="p-5">
-        <div class="container"> 
+        <div class="container">
+            Selamat Datang <?= $_SESSION['username'] ?>
             <?php
             if(isset($_GET['page'])){
             ?>
