@@ -68,6 +68,9 @@ if (!isset($_SESSION['username'])) {
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=article">Article</a>
             </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+            </li> 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-danger fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <?= $_SESSION['username']?>
@@ -102,9 +105,9 @@ if (!isset($_SESSION['username'])) {
     </section>
     <!-- content end -->
     <!-- footer begin -->
-    <footer class="text-center p-5 bg-info">
-    <div>
-    <a href="https://www.instagram.com/abd_khlm"
+    <footer class="text-center p-3 bg-info">
+        <div>
+            <a href="https://www.instagram.com/abd_khlm"
         ><i class="bi bi-instagram h2 p-2 text-dark"></i
         ></a>
         <a href="https://twitter.com/abd_khlm"
@@ -115,12 +118,12 @@ if (!isset($_SESSION['username'])) {
         ></a>
     </div>
     <div>Abdul Khalim &copy; 2024</div>
-    </footer>
-    <!-- footer end -->
-    <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"
-    ></script>
+</footer>
+<!-- footer end -->
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"
+></script>
 </body>
 </html> 

@@ -119,44 +119,51 @@ include "koneksi.php";
 <!-- article end -->
 
       <!-- gallery begin -->
-      <section id="gallery" class="text-center p-5 bg-warning" class="isi">
-        <div class="container">
-          <h1 class="fw-bold display-4 pb-3">Gallery</h1>
-          <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiD05Wy-Nq_oXExz1t9pkbcAG0oahu_QGxOCIlcUjUTiiCxpYCruZ_tMYZtkU5QEMWLPUEQvmicCv0d89y3B6sUMa0hala1b_L4zXp8OgccTI1C6b_vo1X7vqnbJRq0QgtFB_2txKFG8WcmVpwTkrSJsAePHjX_HrM-DcbCViVrflt_1essUYGSObJUcjnb"
-                class="d-block w-100" alt="..." width="100">
-              </div>
-              <div class="carousel-item active">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjGwD92lBgjYkVXNBV0wRw-5QS27aap9BtLA15p57D2QSYtemZRkrfuI0BwFNNBnj9RUy-Go4Gjb_Ij3eKiJMcaizYk3NYrhADUG12GJX8x1TXgYoQQ0vxrw5-twawj_Ak_2BT1oL_mgIuTIczEe1hFkxrT9RYmcQUrEVwEdlAvEfkO7eHdbNdprp9dAlVI"
-                class="d-block w-100" alt="..." width="100">
-              </div>
-              <div class="carousel-item">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEiAvZbsAn5OrA3baY-up6_CME2cHpBOTxZVAuY0sXP8zEbeICzsYtmu67ni3hpL9ppmmVeITcZqRDuVUjwIx2GNtbjjqZHdLCNjlQ6hCODDRAyI_ufmfB99otI0F8MidJwY2C41vUDwln64hlbiKg4yORgG_wgRpiDuUdozPijABfgjLbsvria6f6CkaIR_"
-                class="d-block w-100" alt="..." width="100">
-              </div>
-              <div class="carousel-item">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj8hdaUowiZFnz1cffi-VCqf5A-P6Nxv7gsnBJyDcuxAiHcbTmT8sgZWULYrHtJkA-2sWGhT1ngNoLLidSPFPk24eaRRKQIFpch4G0zRG8zYjxwAUJ0xX8A5oGOHRg_CqOzo_D6OAyf5ykTjDbkrbMimf4zxIk0Z3Ij2ny8bKy0zBzm4Hat5HBfHaRlf3Kh"
-                class="d-block w-100" alt="..." width="100">
-              </div>
-              <div class="carousel-item">
-                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgLJ0oIk-ipHyR4qnwDD00u7eT3UlP-BQ-E9UYMuMs-b0qIwikpTX9ddWxshbM23lEukrsPmRee0MftTBzQEFIZte7EYepAairiiKoy185SUKeaqN-37HuIIid3L6ra-uKNSTQVJ1Bh5Km2UHpFodQJrE1eQl-9dQX8HttE8i1M2XgK9XVqB3jwxI5c4X2A"
-                class="d-block w-100" alt="..." width="100">
-              </div>
+    <section id="gallery" class="text-center p-4 bg-secondary-subtle">
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <?php
+                $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+                $hasil = $conn->query($sql);
+                $counter = 0;
+
+                // Generate indicators dynamically
+                while ($row = $hasil->fetch_assoc()) {
+                    echo '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' . $counter . '" class="' . ($counter === 0 ? 'active' : '') . '" aria-current="true" aria-label="Slide ' . ($counter + 1) . '"></button>';
+                    $counter++;
+                }
+
+                // Reset pointer for re-looping
+                $hasil->data_seek(0);
+                ?>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+            <div class="carousel-inner">
+                <?php
+                $counter = 0;
+
+                // Generate slides dynamically
+                while ($row = $hasil->fetch_assoc()) {
+                    echo '<div class="carousel-item ' . ($counter === 0 ? 'active' : '') . '">';
+                    echo '<img src="img/' . $row["gambar"] . '" class="d-block w-100" alt="Slide ' . ($counter + 1) . '">';
+                    echo '</div>';
+                    $counter++;
+                }
+                ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
-          </div>
         </div>
-      </section>
-      <!-- gallery end -->
+    </div>
+</section>
+
+    <!-- gallery end -->
 
       <!-- schedule begin -->
       <section id="schedule" class="text-center p-5">

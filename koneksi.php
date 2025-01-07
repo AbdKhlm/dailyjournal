@@ -1,10 +1,10 @@
 <?php
 date_default_timezone_set('Asia/Jakarta');
 
-$servername = "sql111.infinityfree.com";
-$username = "if0_38013283";
-$password = "************";
-$db = "if0_38013283_webdailyotomotif"; //nama database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "webdailyotomotif"; //nama database
 
 
 //create connection
