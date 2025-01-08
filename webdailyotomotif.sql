@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2025 at 12:08 PM
+-- Generation Time: Jan 08, 2025 at 05:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -89,7 +89,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `foto`) VALUES
-(0, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '');
+(0, 'admin', 'e10adc3949ba59abbe56e057f20f883e', ''),
+(2, 'KHALIM', '3fc0a7acf087f549ac2b266baf94b8b1', 'user001.jpg');
 
 --
 -- Indexes for dumped tables
@@ -121,7 +122,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `gallery`
